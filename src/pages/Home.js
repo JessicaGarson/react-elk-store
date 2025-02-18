@@ -18,6 +18,7 @@ const Home = () => {
   }, [cart]);
 
   const handleAddToCart = (product) => {
+    alert(cart.length + 1);
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
       return existingProduct
