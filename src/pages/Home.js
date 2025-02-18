@@ -18,7 +18,6 @@ const Home = () => {
   }, [cart]);
 
   const handleAddToCart = (product) => {
-    alert(cart.length + 1);
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
       return existingProduct
@@ -51,6 +50,11 @@ const Home = () => {
         >
           <FaShoppingCart className="mr-2" />
           <span>Cart</span>
+          {cart.length > 0 && (
+            <span className="absolute -top-2 -right-2 bg-rose-400 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+              {cart.reduce((sum, item) => sum + item.quantity, 0)}
+            </span>
+          )}
         </button>
       </div>
 
