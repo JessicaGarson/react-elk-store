@@ -34,6 +34,10 @@ const Home = () => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
+  const handleCheckout = () => {
+    alert("Proceeding to checkout...");
+  };
+
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
@@ -85,6 +89,12 @@ const Home = () => {
               ))}
             </ul>
             <h3 className="text-lg font-semibold mt-6">Total: ${totalPrice.toFixed(2)}</h3>
+            <button
+              className="w-full bg-teal-500 text-white py-2 rounded mt-4 hover:bg-teal-600 transition"
+              onClick={handleCheckout}
+            >
+              Checkout
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
